@@ -43,7 +43,8 @@ Este é um sistema completo para clínicas médicas, construído do zero com Vue
 
 ```sql
 CREATE USER clinica_admin WITH PASSWORD 'sua-senha-muito-forte';
-GRANT ALL PRIVILEGES ON DATABASE clinica_db TO clinica_admin;````
+GRANT ALL PRIVILEGES ON DATABASE clinica_db TO clinica_admin;
+```
 
 ### Crie as tabelas users e appointments
 
@@ -55,7 +56,8 @@ CREATE TABLE users (
   password_hash VARCHAR(255) NOT NULL,
   role VARCHAR(50) NOT NULL DEFAULT 'user',
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);```
+);
+```
 
 ```sql
 CREATE TABLE appointments (
@@ -67,7 +69,8 @@ CREATE TABLE appointments (
   user_id INT NOT NULL,
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
-);```
+);
+```
 
 ### Conceda as permissões de uso nas tabelas e sequências ao seu novo usuário
 
@@ -75,7 +78,8 @@ CREATE TABLE appointments (
 GRANT ALL PRIVILEGES ON TABLE users TO clinica_admin;
 GRANT ALL PRIVILEGES ON TABLE appointments TO clinica_admin;
 GRANT USAGE ON SEQUENCE users_id_seq TO clinica_admin;
-GRANT USAGE ON SEQUENCE appointments_id_seq TO clinica_admin;```
+GRANT USAGE ON SEQUENCE appointments_id_seq TO clinica_admin;
+```
 
 ### Crie um arquivo .env na pasta backend com a string de conexão e as chaves de API
 
@@ -83,7 +87,8 @@ GRANT USAGE ON SEQUENCE appointments_id_seq TO clinica_admin;```
 PORT=3000
 DATABASE_URL="postgresql://clinica_admin:sua-senha-muito-forte@localhost:5432/clinica_db"
 JWT_SECRET="sua-chave-secreta-do-jwt"
-WEATHER_API_KEY="sua-chave-de-api-do-clima"```
+WEATHER_API_KEY="sua-chave-de-api-do-clima"
+```
 
 ### Rodando o Servidor (Backend)
 
@@ -91,7 +96,8 @@ Na pasta backend, instale as dependências e inicie o servidor:
 
 ```bash
 npm install
-node server.js```
+node server.js
+```
 
 ### Rodando a Aplicação (Frontend)
 
@@ -99,6 +105,7 @@ Na pasta frontend, instale as dependências e inicie a aplicação:
 
 ```bash
 npm install
-npm run dev```
+npm run dev
+```
 
 A aplicação estará disponível em http://localhost:5173.
