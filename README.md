@@ -96,8 +96,3 @@ npm install
 npm run dev
 
 A aplicação estará disponível em http://localhost:5173.
-
-Links de Deploy
-Frontend: [Link para o deploy do frontend]
-
-Backend: [Link para o deploy do backend]
